@@ -5,9 +5,9 @@ import sys
 
 HEADER_LENGTH = 10
 
-IP = "127.0.0.1"
+IP = "20.0.0.19"
 PORT = 1234
-my_username = input("Username: ")
+my_username = "reciever"
 
 # Create a socket
 # socket.AF_INET - address family, IPv4, some otehr possible are AF_INET6, AF_BLUETOOTH, AF_UNIX
@@ -29,15 +29,15 @@ client_socket.send(username_header + username)
 while True:
 
     # Wait for user to input a message
-    message = input(f'{my_username} > ')
+    #message = input(f'{my_username} > ')
 
     # If message is not empty - send it
-    if message:
+    #if message:
 
         # Encode message to bytes, prepare header and convert to bytes, like for username above, then send
-        message = message.encode('utf-8')
-        message_header = f"{len(message):<{HEADER_LENGTH}}".encode('utf-8')
-        client_socket.send(message_header + message)
+        #message = message.encode('utf-8')
+        #message_header = f"{len(message):<{HEADER_LENGTH}}".encode('utf-8')
+        #client_socket.send(message_header + message)
 
     try:
         # Now we want to loop over received messages (there might be more than one) and print them
